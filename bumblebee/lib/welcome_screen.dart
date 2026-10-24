@@ -22,7 +22,7 @@ class WelcomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Icon(
-                Icons.account_circle,
+                Icons.directions_car_filled,
                 size: 80,
                 color: Colors.deepPurple,
               ),
@@ -37,7 +37,7 @@ class WelcomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               const Text(
-                'Your profile is set up and ready to go.',
+                'Your profile is set up. Explore our car rental fleet below!',
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.grey,
@@ -54,7 +54,7 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                   );
                 },
-                child: const Text('Browse Destinations'),
+                child: const Text('Browse Cars'),
               ),
             ],
           ),

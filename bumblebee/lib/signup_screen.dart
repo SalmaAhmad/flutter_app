@@ -62,8 +62,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 const SizedBox(height: 16),
                 TextFormField(
                   controller: _travelStyleController,
-                  decoration: const InputDecoration(labelText: 'Travel style'),
-                  validator: Validators.validateTravelStyle,
+                  decoration: const InputDecoration(
+                    labelText: 'Car preference (e.g. SUV, Sports, Electric)',
+                  ),
+                  validator: Validators.validateCarPreference,
                 ),
                 const SizedBox(height: 24),
                 ElevatedButton(
