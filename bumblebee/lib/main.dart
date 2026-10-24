@@ -83,3 +83,25 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+class Signupscreen extends StatelessWidget{
+  const Signupscreen({super.key});
+
+
+  @override
+  Widget build(BuildContext context){
+    return Scaffold
+    (appBar: AppBar(title: const Text('Create your profile')),
+    body: SafeArea(
+      child:Padding(padding: const EdgeInsetsGeometry.all(16)),
+      child: Form() 
+    ,)
+    
+  }
+
+}
+class Vaidators{
+  static String? validateName(?String value){
+    if value == Null
+  }
+}
