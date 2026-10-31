@@ -1,5 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import 'car_menu.dart';
 import 'signup_screen.dart';
+import 'welcome_screen.dart';
+
+final GoRouter router = GoRouter(
+  initialLocation: '/',
+  routes: [
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const StartScreen(),
+    ),
+    GoRoute(
+      path: '/signup',
+      builder: (context, state) => const SignUpScreen(),
+    ),
+    GoRoute(
+      path: '/welcome/:name',
+      builder: (context, state) {
+        final name = state.pathParameters['name'] ?? 'User';
+        return WelcomeScreen(name: Uri.decodeComponent(name));
+      },
+    ),
+    GoRoute(
+      path: '/carMenu',
+      builder: (context, state) => const DestinationsScreen(),
+    ),
+  ],
+);
 
 void main() {
   runApp(const MyApp());
@@ -10,14 +39,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Bumblee App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const StartScreen(),
+      routerConfig: router,
     );
   }
 }
@@ -61,12 +90,7 @@ class StartScreen extends StatelessWidget {
               const SizedBox(height: 36),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SignUpScreen(),
-                    ),
-                  );
+                  context.go('/signup');
                 },
                 child: const Text("Get Started"),
               ),

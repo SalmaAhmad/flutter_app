@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'car_menu.dart';
+import 'package:go_router/go_router.dart';
 
 class WelcomeScreen extends StatelessWidget {
   final String name;
@@ -47,12 +47,7 @@ class WelcomeScreen extends StatelessWidget {
               const SizedBox(height: 32),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const DestinationsScreen(),
-                    ),
-                  );
+                  context.go('/carMenu');
                 },
                 child: const Text('Browse Cars'),
               ),
